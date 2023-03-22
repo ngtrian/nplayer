@@ -51,6 +51,8 @@ video.addEventListener("playing", handlePlaying);
 document.addEventListener("keydown", handleShorthand);
 fullscreen.addEventListener("click", toggleFullscreen);
 
+video.addEventListener('click', togglePlayPause);
+
 playPause.addEventListener("click", (e) => {
   if (!isPlaying) {
     play();
@@ -163,6 +165,14 @@ settingsBtn.addEventListener("click", handleSettingMenu);
 speedButtons.forEach((btn) => {
   btn.addEventListener("click", handlePlaybackRate);
 });
+
+function togglePlayPause() {
+  if (video.paused) {
+    play();
+  } else {
+    pause();
+  }
+}
 
 function canPlayInit() {
   totalDuration.innerHTML = showDuration(video.duration);
