@@ -51,7 +51,7 @@ video.addEventListener("playing", handlePlaying);
 document.addEventListener("keydown", handleShorthand);
 fullscreen.addEventListener("click", toggleFullscreen);
 
-video.addEventListener('click', togglePlayPause);
+//video.addEventListener('click', togglePlayPause);
 
 playPause.addEventListener("click", (e) => {
   if (!isPlaying) {
@@ -298,7 +298,7 @@ function hideControls() {
 
 function toggleMainState(e) {
   e.stopPropagation();
-  if (!e.path.includes(controls)) {
+  if (!e.composedPath.includes(controls)) {
     if (!isPlaying) {
       play();
     } else {
